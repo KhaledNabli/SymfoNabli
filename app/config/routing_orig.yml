@@ -1,0 +1,49 @@
+nabli_auth:
+    resource: "@NabliAuthBundle/Resources/config/routing.yml"
+    prefix:   /Auth
+
+
+nabli_admin:
+    resource: "@NabliAdminBundle/Resources/config/routing.yml"
+    prefix:   /Admin
+    host:     "apps.%domain%"
+
+nabli_recommendation:
+    resource: "@NabliRecommendationBundle/Resources/config/routing.yml"
+    prefix:   /RecommendationEngine
+    host:     "apps.%domain%"
+
+nabli_channel_connector:
+    resource: "@NabliChannelConnectorBundle/Resources/config/routing.yml"
+    prefix:   /ChannelConnector
+    host:     "apps.%domain%"
+
+nabli_content_provider:
+    resource: "@NabliContentProviderBundle/Resources/config/routing.yml"
+    prefix:   /ContentManager
+    host:     "apps.%domain%"
+
+nabli_insight_provider:
+    resource: "@NabliInsightProviderBundle/Resources/config/routing.yml"
+    prefix:   /InsightProvider
+    host:     "apps.%domain%"
+
+nabli_event_stream:
+    resource: "@NabliEventStreamBundle/Resources/config/routing.yml"
+    prefix:   /StreamProcessor
+    host:     "apps.%domain%"
+
+
+nabli_app_root:
+    resource: "@NabliAppBundle/Resources/config/routing.yml"
+    host:     "apps.%domain%"
+
+nabli_web_root:
+    resource: "@NabliWebBundle/Resources/config/routing.yml"
+    host:     "www.%domain%"
+
+# deprecated - remove in next release and replace with /Stream route
+nabli_esp_man:
+    resource: "@NabliEspManBundle/Resources/config/routing.yml"
+    prefix:   /Esp
+

@@ -1,0 +1,39 @@
+nabli_esp_man_Index:
+    pattern:  /
+    defaults: { _controller: NabliEspManBundle:Default:index }
+
+nabli_esp_man_Engine:
+    pattern:  /engine
+    defaults: { _controller: NabliEspManBundle:Engine:index }
+nabli_esp_man_EngineNew:
+    pattern:  /engine/new
+    defaults: { _controller: NabliEspManBundle:Engine:new }
+nabli_esp_man_EngineView:
+    pattern:  /engine/{engineId}
+    defaults: { _controller: NabliEspManBundle:Engine:view }
+nabli_esp_man_EngineEdit:
+    pattern:  /engine/{engineId}/edit
+    defaults: { _controller: NabliEspManBundle:Engine:edit }
+nabli_esp_man_EngineDelete:
+    pattern:  /engine/{engineId}/delete
+    defaults: { _controller: NabliEspManBundle:Engine:delete }
+nabli_esp_man_EngineStart:
+    pattern:  /engine/{engineId}/start
+    defaults: { _controller: NabliEspManBundle:Engine:start }
+nabli_esp_man_EngineStop:
+    pattern:  /engine/{engineId}/stop
+    defaults: { _controller: NabliEspManBundle:Engine:stop }
+
+
+
+nabli_esp_man_Project:
+    pattern:  /project
+    defaults: { _controller: NabliEspManBundle:Project:index }
+
+nabli_esp_man_Monitor:
+    pattern:  /monitor
+    defaults: { _controller: NabliEspManBundle:Monitor:index }
+
+nabli_esp_man_Query:
+    pattern:  /query
+    defaults: { _controller: NabliEspManBundle:Query:index }

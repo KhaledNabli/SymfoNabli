@@ -1,0 +1,49 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+        in_memory:
+            memory:
+                users:
+                    khaled:  { password: test1, roles: [ 'ROLE_USER' ] }
+                    admin: { password: test2, roles: [ 'ROLE_ADMIN' ] }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js|assets|bundles|twbs)/
+            security: false
+
+        klaudnabli_secured:
+            pattern: ^/
+            anonymous: ~
+            form_login: 
+                provider:   fos_userbundle
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+                csrf_provider: form.csrf_provider
+            logout: 
+                path:       fos_user_security_logout
+                target:     nabli_web_homepage_local
+                invalidate_session: true
+            oauth:
+                resource_owners:
+                    facebook:           "/Auth/oauth/check-facebook"
+                    google:             "/Auth/oauth/check-google"
+                    twitter:             "/Auth/oauth/check-twitter"
+                login_path:        fos_user_security_login
+                failure_path:      fos_user_security_login
+                oauth_user_provider:
+                    #this is my custom user provider, created from FOSUBUserProvider - will manage the
+                    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+                    service: oauth_user_provider
+
+    access_control:
+        - { path: "^/(%supported_local%)/(Apps|StreamProcessor|InsightProvider|Esp|Admin|RecommendationEngine|ChannelConnector|ContentManager)", roles: ROLE_USER }
+        - { path: "^/[a-q]{0,2}$", roles: IS_AUTHENTICATED_ANONYMOUSLY }

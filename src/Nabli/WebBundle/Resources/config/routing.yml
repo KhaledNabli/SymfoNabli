@@ -1,0 +1,11 @@
+nabli_web_homepage_local:
+    path:     /{_locale}/
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    'NabliWebBundle:Default:index.html.twig'
+
+nabli_web_homepage:
+    path:     /{_locale}
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    'NabliWebBundle:Default:index.html.twig'

@@ -1,0 +1,17 @@
+parameters:
+#    nabli_auth.example.class: Nabli\AuthBundle\Example
+
+services:
+#    nabli_auth.example:
+#        class: %nabli_auth.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    nabli_auth.registration.form.type:
+        class: Nabli\AuthBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: nabli_user_registration }
+    oauth_user_provider:
+        class: Nabli\AuthBundle\Security\Core\User\FOSUBUserProvider
+        #this is the place where the properties are passed to the UserProvider - see config.yml
+        arguments: [@fos_user.user_manager,{facebook: facebook_id, google: google_id, twitter: twitter_id}]
+        calls:
+            - [setLogger, ["@logger"]]

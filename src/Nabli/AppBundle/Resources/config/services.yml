@@ -1,0 +1,7 @@
+parameters:
+#    nabli_app.example.class: Nabli\AppBundle\Example
+
+services:
+#    nabli_app.example:
+#        class: %nabli_app.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

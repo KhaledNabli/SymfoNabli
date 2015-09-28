@@ -1,0 +1,7 @@
+parameters:
+#    nabli_channel_connector.example.class: Nabli\ChannelConnectorBundle\Example
+
+services:
+#    nabli_channel_connector.example:
+#        class: %nabli_channel_connector.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,5 @@
+registration.submit: Register
+form.password: Password
+form.password_confirmation: Repeat Password
+form.username: User Name
+form.email: Email

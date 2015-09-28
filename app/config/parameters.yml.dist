@@ -1,0 +1,31 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: 
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: symfony
+    database_password: 
+    mailer_transport: 
+    mailer_host: 
+    mailer_user: 
+    mailer_password: 
+    locale: de
+    supported_local:   en|de|it|fr|tr|nl
+    secret: 
+    twig_use_cdn:  false
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+    domain: localhost
+    facebook_app_id: 
+    facebook_app_secret: 
+    facebook_app_scope: 'public_profile, email, user_photos'
+    google_app_id: 
+    google_app_secret: 
+    google_app_scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+    twitter_app_id: 
+    twitter_app_secret: 
+    twitter_app_scope: null
+
+

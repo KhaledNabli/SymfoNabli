@@ -1,0 +1,101 @@
+<!-- src/Nabli/nabliapp/Resources/views/app_layout.html.twig -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{% block meta_charset %}utf-8{% endblock %}">
+    <meta http-equiv="X-UA-Compatible" content="{% block meta_http_compatibility %}IE=edge{% endblock %}">
+    <meta name="viewport" content="{% block meta_viewport %}width=device-width, initial-scale=1{% endblock %}">
+    <meta name="description" content="{% block meta_desc %}Cloud, Marketing, Content, Services, Tracking, Constulting{% endblock %}">
+    <meta name="author" content="{% block meta_author %}klaudnabli.com{% endblock %}">
+
+    <title>{% block title %}www.klaudnabli.com{% endblock %}</title>
+  
+{% block stylesheet %}
+{% if use_cdn %}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet">
+{% else %}
+<link href="{{ asset('twbs/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/nabliapp/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/nabliapp/css/plugins/morris.css') }}" rel="stylesheet">
+{% endif %}
+<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href="{{ asset('bundles/nabliapp/css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/nabliapp/css/plugins/timeline.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/nabliapp/css/sba2style.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascript_head %}
+<!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+{% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+{% endblock %}
+</head>
+
+<body>
+{% block body %}
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            {% include 'NabliAppBundle:Components:togglenavigation.html.twig' %}
+            <a class="navbar-brand" href="#"> {% block navbarbrand %} <i class="fa fa-cogs"></i> KlaudNabli APP  {% endblock %} </a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+        {% block component_notification %}
+            {% include 'NabliAppBundle:Components:notificationdropdown.html.twig' %}
+        {% endblock component_notification %}
+        {% block component_message %}
+            {% include 'NabliAppBundle:Components:messagedropdown.html.twig' %}
+        {% endblock component_message %}
+        {% block component_task %}
+            {% include 'NabliAppBundle:Components:taskdropdown.html.twig' %}
+        {% endblock component_task %}
+        {% block component_user %}
+            {% include 'NabliAppBundle:Components:userdropdown.html.twig' %}
+        {% endblock component_user %}
+        </ul>
+
+        <div class="navbar-default sidebar" role="navigation">
+            {% include 'NabliAppBundle:Components:sidenavigation.html.twig' %}
+        </div>
+    </nav>
+
+
+{% block body_page %}
+    <div id="page-wrapper">
+        {% block body_content %}
+        <!-- Page Content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Page Header Blank</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        {% endblock %}
+        <!-- /#page-wrapper -->
+    </div>
+{% endblock %}
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% if use_cdn %}
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+{% else %}
+<script src="{{ asset('twbs/js/jquery.js') }}"></script>
+<script src="{{ asset('twbs/js/bootstrap.js') }}"></script>
+<script src="{{ asset('bundles/nabliapp/js/plugins/morris/raphael.min.js') }}"></script>
+<script src="{{ asset('bundles/nabliapp/js/plugins/morris/morris.min.js') }}"></script>
+{% endif %}
+<script src="{{ asset('bundles/nabliapp/js/plugins/metisMenu/metisMenu.min.js') }}"></script>
+<script src="{{ asset('bundles/nabliapp/js/sba2style.js') }}"></script>
+{% endblock %}
+</body>
+</html>

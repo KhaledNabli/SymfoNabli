@@ -1,0 +1,5 @@
+nabli_app_homepage:
+    path:     /
+    defaults: { _controller: NabliAppBundle:Default:index}
+    
+

@@ -1,0 +1,3 @@
+nabli_content_provider_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NabliContentProviderBundle:Default:index }

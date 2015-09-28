@@ -1,0 +1,20 @@
+registration.title: Einmal anmelden. Alle Produkte nutzen.
+registration.submit: Registrieren
+registration.password: Passwort
+registration.password_confirmation: Passwort wiederholen
+registration.password.mismatch: "Passwörter stimmen nicht überein"
+registration.username: Benutzer Name
+registration.firstname: Benutzer Name
+registration.lastname: Benutzer Name
+registration.email: EMail
+security.login.username:			Email Adresse
+security.login.password:			Passwort
+security.login.submit:				Anmelden
+security.login.remember_me:			Angemeldet bleiben
+security.login.reset_password:		Passwort vergessen?
+security.login.create_account:		Kostenlos registrieren
+security.login.or:					oder
+security.login.login_with:			Anmelden mit
+security.login.with_facebook:       Mit Facebook anmelden
+security.login.with_google:         Mit Google anmelden
+security.login.with_twitter:       	Mit Twitter anmelden

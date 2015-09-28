@@ -1,0 +1,23 @@
+{% extends 'NabliAppBundle::base_layout.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+	<div class="jumbotron">
+		<h1>Hello, {{ app.user.getUsername() }}!</h1>
+		<p>The App Console is not enabled for your account. This will happen very soon!<br />
+			stay tuned :)
+		</p>
+
+		<p> Usefull links: 
+			<ul>
+				<li><a href="{{path('nabli_web_homepage_local')}}">Startsite</a></li>
+				<li><a href="{{path('fos_user_profile_show')}}">Profile</a></li>
+				<li><a href="{{path('fos_user_profile_edit')}}">Edit</a></li>
+				<li><a href="{{path('nabli_esp_man_Index')}}">Test App: Event Streaming</a></li>
+				<li><a href="{{path('fos_user_security_logout')}}">Log Off</a></li>
+			</ul> 
+		</p>
+	</div>
+</div>
+{% endblock %}

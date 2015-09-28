@@ -1,0 +1,80 @@
+{% extends "NabliAuthBundle::layout.html.twig" %}
+
+{% trans_default_domain 'NabliAuthBundle' %}
+
+{% block title %}login to klaudnabli.com{% endblock %}
+
+{% block stylesheet %}
+  {{ parent() }}
+    {% if use_cdn %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    {% else %}
+    <link href="{{ asset('bundles/nabliapp/css/font-awesome.min.css') }}" rel="stylesheet">
+    {% endif %}
+    <link href="{{ asset('bundles/nabliapp/css/plugins/social-buttons.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body_content %}
+<div class="col-lg-5 col-lg-offset-6 col-md-6 col-md-offset-6 col-xs-12  col-sm-6 col-sm-offset-6">
+    <div class="content-box"> 
+        {% if last_picture %}
+            <img class="auth-form-profile-img" src="{{ last_picture }}" alt="">
+        {% elseif ( app.user and app.user.getPicture() is not empty) %}
+            <img class="auth-form-profile-img" src="{{ app.user.getPicture() }}" alt="">
+        {% else %}
+            {% image '@NabliAuthBundle/Resources/public/images/no_avatar1.png' output='assets/img/noavatar.png' %}
+            <img class="auth-form-profile-img" src="{{ asset_url }}" alt="" />
+            {% endimage %}
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}         
+
+        <form class="auth-form" action="{{ path('fos_user_security_check') }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+            <input name="_username" value="{{last_username}}" type="text" class="form-control auth-form-first-input" 
+            placeholder="{{ 'security.login.username'|trans }}" required autofocus />
+
+            <input type="password" name="_password" class="form-control auth-form-last-input" 
+            placeholder="{{ 'security.login.password'|trans }}" required />
+            <a href="{{ path('fos_user_resetting_request') }}" class="pull-right auth-form-align-right">
+                {{ 'security.login.reset_password'|trans }}
+            </a>
+
+            <label class="checkbox pull-left">
+                <input type="checkbox" name="_remember_me" value="on">{{ 'security.login.remember_me'|trans }}
+            </label>
+
+
+            <span class="clearfix"></span>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="_submit">
+                {{ 'security.login.submit'|trans }}
+            </button>
+        </form>
+        
+        <!--<p><a href="{{ path('fos_user_registration_register') }}" class="text-center auth-form-align-center">{{'security.login.create_account'|trans}}</a></p>-->
+        <p> </p>
+        <p class="text-center auth-form-align-center">{{ 'security.login.or'|trans }}</p>
+        <p class="text-center auth-form-align-center">{{ 'security.login.login_with'|trans }}</p>
+
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" 
+        class="btn btn-block btn-social btn-facebook" alt="Sign in with Facebook">
+        <i class="fa fa-facebook"></i> {{ 'security.login.with_facebook'|trans }}</a>
+
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'twitter' }) }}" 
+        class="btn btn-block btn-social btn-twitter" alt="Sign in with Twitter">
+        <i class="fa fa-twitter"></i> {{ 'security.login.with_twitter'|trans }}</a>
+
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" 
+        class="btn btn-block btn-social btn-google-plus" alt="Sign in with Google">
+        <i class="fa fa-google-plus"></i> {{ 'security.login.with_google'|trans }}</a>
+    </div>
+</div>
+{% endblock body_content %}

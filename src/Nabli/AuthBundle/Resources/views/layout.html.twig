@@ -1,0 +1,65 @@
+{% extends "NabliAppBundle::base_layout.html.twig" %}
+
+{% block stylesheet %}
+{{ parent() }}
+<link href="{{ asset('bundles/nabliauth/css/main.css') }}" rel="stylesheet"  />
+{% endblock %}
+
+{% block body %}
+    {% block headerbar %}
+        <nav class="navbar navbar-default navbar-fixed-top header-bar" role="navigation">
+        	<div class="container">
+        		<!-- Brand and toggle get grouped for better mobile display -->
+        		<div class="navbar-header">
+        			<a class="navbar-brand" href="{{ path('nabli_web_homepage_local') }}"><img src="{{ asset('bundles/nabliauth/images/logo_txt.png') }}" height="20"/></a>
+        		</div>
+        		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        			{% block headerbar_content %}
+        			
+                    {% if app.user %}
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary navbar-btn navbar-right">Logout</a>
+                    <p class="navbar-text ">Signed in as <a href="{{ path('fos_user_profile_show') }}" class="navbar-link">{{ app.security.getToken().getUser().getUsername() }}</a></p>
+                    {% endif %}
+
+        			{% endblock %}
+        		</div>
+        	</div>
+        </nav>
+        {% endblock %}
+
+        {% block body_container %}
+        <div class="container">
+        	<div class="row">
+        		{% block body_content %}
+                <div class="col-md-6 col-md-offset-3">
+            		<div class="content-box">
+                        {% for type, messages in app.session.flashbag.all() %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+
+            			{% block fos_user_content %}
+            			{% endblock fos_user_content %}
+            		</div>
+                </div>
+        		{% endblock body_content %}
+        	</div>
+        </div>
+        {% endblock body_container %}
+
+        {% block footerbar %}
+        <div class="footer footer-bar navbar-fixed-bottom">
+        	<div class="container">
+        		{% block footerbar_content %}
+        		<p><span class="glyphicon glyphicon-copyright-mark"></span> klaudnabli.com</p>
+        		{% endblock footerbar_content %}
+        	</div>
+        </div>
+    {% endblock %}
+{% endblock %}

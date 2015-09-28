@@ -1,0 +1,3 @@
+nabli_channel_connector_default:
+    path:     /
+    defaults: { _controller: NabliChannelConnectorBundle:Default:index }

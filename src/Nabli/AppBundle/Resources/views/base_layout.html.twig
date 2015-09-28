@@ -1,0 +1,40 @@
+<!-- src/Nabli/AppBundle/Resources/views/base_layout.html.twig -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}www.klaudnabli.com{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block stylesheet %}
+    <!-- Bootstrap -->
+    {% if use_cdn %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    {% else %}
+    <link href="{{ asset('twbs/css/bootstrap.css') }}" rel="stylesheet">
+    {% endif %}
+    {% endblock %}
+    
+    {% block javascript_head %}
+    <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block body %}
+
+    {% endblock %}
+
+    {% block javascript %}
+    {% if use_cdn %}
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% else %}
+    <script src="{{ asset('twbs/js/jquery.js') }}"></script>
+    <script src="{{ asset('twbs/js/bootstrap.js') }}"></script>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

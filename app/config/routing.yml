@@ -1,0 +1,95 @@
+nabli_auth:
+    resource: "@NabliAuthBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/Auth
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+ 
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /Auth/oauth
+
+hwi_oauth_facebook_login:
+    pattern: /Auth/oauth/check-facebook
+
+hwi_oauth_google_login:
+    pattern: /Auth/oauth/check-google
+
+hwi_oauth_twitter_login:
+    pattern: /Auth/oauth/check-twitter
+
+nabli_admin:
+    resource: "@NabliAdminBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/Admin
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_recommendation:
+    resource: "@NabliRecommendationBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/RecommendationEngine
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_channel_connector:
+    resource: "@NabliChannelConnectorBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/ChannelConnector
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_content_provider:
+    resource: "@NabliContentProviderBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/ContentManager
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_insight_provider:
+    resource: "@NabliInsightProviderBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/InsightProvider
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_event_stream:
+    resource: "@NabliEventStreamBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/StreamProcessor
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_app_root:
+    resource: "@NabliAppBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/Apps
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+# deprecated - remove in next release and replace with /Stream route
+nabli_esp_man:
+    resource: "@NabliEspManBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/Esp
+    schemes:   [https]
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+nabli_web_root:
+    resource: "@NabliWebBundle/Resources/config/routing.yml"
+    prefix:   /
+    defaults: {  _locale:  %locale% }
+    requirements:
+        _locale: %supported_local%
+
+
+

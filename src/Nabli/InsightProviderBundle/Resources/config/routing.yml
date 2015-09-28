@@ -1,0 +1,3 @@
+nabli_insight_provider_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NabliInsightProviderBundle:Default:index }

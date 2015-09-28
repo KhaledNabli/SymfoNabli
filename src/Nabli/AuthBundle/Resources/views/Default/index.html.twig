@@ -1,0 +1,92 @@
+{% extends "NabliAuthBundle::layout.html.twig" %}
+
+{% block title %}welcome to klaudnabli.com{% endblock %}
+
+{% block body_content %}
+<div class="col-md-4 col-md-offset-1">
+	<div class="content-box"> 
+		<div class="auth-form-heading"> <h1>Login</h1></div>     
+
+
+		<form class="auth-form" action="{{ path('fos_user_security_check') }}" method="post">
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+			<input name="_username" value="" type="text" 
+			class="form-control auth-form-first-input" placeholder="Email address" 
+			required autofocus>
+
+			<input type="password" name="_password" class="form-control auth-form-last-input" placeholder="Password" required>
+
+			
+
+			<label class="checkbox pull-left">
+				<input type="checkbox" name="_remember_me" value="on">Rememeber me
+			</label>
+
+			<a href="{{ path('fos_user_resetting_request') }}" class="pull-right auth-form-align-right">Reset password </a><span class="clearfix"></span>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="_submit">Login</button>
+		</form>
+
+	</div>
+</div>
+
+<div class="col-md-4 col-md-offset-1">
+	<div class="content-box">
+        <div class="auth-form-heading"> <h1>Sign up for free</h1></div>
+        {{ form_start(form, {'action': path('fos_user_registration_register'), attr : { class : 'auth-form' }}) }}
+
+            {% if form.vars.errors is not empty %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                {{ form_errors(form) }}
+            </div>
+            {% endif %}       
+
+            {{ form_widget(form.firstName, {style: 'inline', attr: {class:'form-control auth-form-first-left-input'}} ) }}
+            <!--input name="_firstname" value="" type="text" 
+            class="form-control auth-form-first-left-input" placeholder="First name" 
+            required autofocus-->
+            {{ form_widget(form.lastName, {style: 'inline', attr: {class:'form-control auth-form-first-right-input'}} ) }}
+            <!--input name="_lastname" value="" type="text" 
+            class="form-control auth-form-first-right-input" placeholder="Last name" 
+            required autofocus-->
+            {{ form_errors(form.firstName) }}
+            {{ form_errors(form.lastName) }}
+
+
+
+
+            {{ form_widget(form.email, {style: 'inline', attr: {class:'form-control auth-form-middle-input'}} ) }}
+            <!--input type="email" name="_email" class="form-control auth-form-middle-input" placeholder="Email" required -->
+            {{ form_errors(form.email) }}
+            
+
+            {{ form_widget(form.plainPassword, {style: 'inline', attr: {class:'form-control auth-form-last-input'}} ) }}
+            <!--input type="password" name="_password" class="form-control auth-form-last-input" placeholder="Password" required-->{{ form_errors(form.plainPassword) }}
+
+
+            <div class="btn-group btn-group-justified">
+                <!-- Single button -->
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-lg btn-info dropdown-toggle" data-toggle="dropdown">
+                    Register with <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="Sign in with Google">Google+</a></li>
+                    <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="Sign in with Facebook">Facebook</a></li>
+                    <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'twitter' }) }}" alt="Sign in with Twitter">Twitter</a></li>  
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-lg btn-primary" type="submit" name="_submit">Register</button>
+            </div>
+        </div>
+
+
+        <span class="clearfix"></span>
+    {{ form_end(form) }}
+</div>
+{% endblock body_content %}

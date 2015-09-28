@@ -1,0 +1,3 @@
+nabli_event_stream_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NabliEventStreamBundle:Default:index }

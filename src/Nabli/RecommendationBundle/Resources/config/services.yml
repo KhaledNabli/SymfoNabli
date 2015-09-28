@@ -1,0 +1,7 @@
+parameters:
+#    nabli_recommendation.example.class: Nabli\RecommendationBundle\Example
+
+services:
+#    nabli_recommendation.example:
+#        class: %nabli_recommendation.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

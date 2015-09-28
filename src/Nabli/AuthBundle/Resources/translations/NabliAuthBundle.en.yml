@@ -1,0 +1,20 @@
+registration.title: 				Login once. Use all products.
+registration.submit: 				Register
+registration.password: 				Password
+registration.password_confirmation: Repeat password
+registration.password.mismatch: 	The entered passwords don´t match
+registration.username: 				User name
+registration.firstname: 			First name
+registration.lastname: 				Last name
+registration.email: 				Email address
+security.login.username:			Email address
+security.login.password:			Password
+security.login.submit:				Login
+security.login.remember_me:			Rememeber me
+security.login.reset_password:		Forgot password?
+security.login.create_account:		Create an account
+security.login.or:					or
+security.login.login_with:			Sign in with
+security.login.with_facebook:       Sign in with Facebook
+security.login.with_google:       Sign in with Google
+security.login.with_twitter:       Sign in with Twitter
